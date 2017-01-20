@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>calculadora</title>
+	<meta charset="utf8" />
+	<meta name="author" content="yo"/>
+	<meta name="keywords" content="barakaldo" />
+	<link rel="stylesheet" href="estilos.css"/>
+
+<script>
+	var operando1;
+	var operador;
+	var operando2;
+	var resultado;
+function mostrar(x){
+	document.getElementById("pantalla").value+=x;
+}
+function operar(y){
+	operando1=parseFloat(document.getElementById("pantalla").value);
+	operador=y;
+	document.getElementById("pantalla").value="0";
+}
+function terminar(){
+	operando2=parseFloat(document.getElementById("pantalla").value);
+	switch(operador){
+	case '+':
+		resultado=operando1+operando2;
+		break;
+	case '-':
+		resultado=operando1-operando2;
+		break;
+	case 'x':
+		resultado=operando1*operando2;
+		break;
+	case '/':
+		resultado=operando1/operando2;
+		break;
+	default:
+	}
+	document.getElementById("pantalla").value=resultado
+}
+</script>
+
+</head>
+<body id="body">
+<section>
+
+	<form id="calc">
+		<input id="pantalla" type="text" name="pantalla" value="0"></input><br> 
+		<input id="uno" onclick="mostrar(1)" name="uno" type="button" class="numero" value="1"></input>
+		<input id="dos" onclick="mostrar(2)" name="dos" type="button" class="numero" value="2"></input>
+		<input id="tres" onclick="mostrar(3)" name="tres" type="button" class="numero" value="3"></input>
+		<input id="mas" onclick="operar('+')" name="mas" type="button" class="operador" value="+"></input><br>
+		<input id="cuatro" onclick="mostrar(4)" name="cuatro" type="button" class="numero" value="4"></input>
+		<input id="cinco" onclick="mostrar(5)" name="cinco" type="button" class="numero" value="5"></input>
+		<input id="seis" onclick="mostrar(6)" name="seis" type="button" class="numero" value="6"></input>
+		<input id="menos" onclick="operar('-')" name="menos" type="button" class="operador" value="-"></input><br>
+		<input id="siete" onclick="mostrar(7)" name="siete" type="button" class="numero" value="7"></input>
+		<input id="ocho" onclick="mostrar(8)" name="ocho" type="button" class="numero" value="8"></input>
+		<input id="nueve" onclick="mostrar(9)" name="nueve" type="button" class="numero" value="9"></input>
+		<input id="por" onclick="operar('x')" name="por" type="button" class="operador" value="*"></input><br>
+		<input id="cero" onclick="mostrar(0)" name="cero" type="button" class="numero" value="0"></input>
+		<input id="coma" onclick="mostrar('.')"name="coma" type="button" class="numero" value="."></input>
+		<input id="igual" onclick="terminar()" name="igual" type="button" class="operador" value="="></input>
+		<input id="entre" onclick="operar('/')" name="entre" type="button" class="operador" value="/"></input>
+				
+	</form>
+	
+</section>
+
+</body>
+</html>
