@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<script type="text/javascript">
+
+function romanos(){
+	var arabes=[1000,500,100,50,10,5,1];
+	var romanos=["M","D","C","L","X","V","I"];
+	var cantidad=prompt("introduce la cantidad");
+	for(x=0;x<7;x++){
+	var num = Math.floor(cantidad/arabes[x]);
+	if(num<4 && num!=0){
+	for(i=1;i<num+1;i++){
+	document.getElementById("cantidad").innerHTML+= romanos[x];
+	}
+	}
+	else if (num==4){
+	document.getElementById("cantidad").innerHTML+= romanos[x] + romanos[x-1];
+	}
+	cantidad=cantidad%arabes[x];
+	}
+}
+
+</script>
+</head>
+<body>
+<p id="cantidad" onclick="romanos()">NUMERO<br><BR></p><br><br>
+</body>
+</html>
